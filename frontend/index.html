@@ -1023,11 +1023,13 @@ async function loadDashboard(){
   try{
     const isAdmin=currentUser?.role==='admin';
     const complaintsData=await api('GET','/complaints?limit=5');
+    const allData=await api('GET','/complaints?limit=1000');
     const list=complaintsData.data||[];
-    const total=complaintsData.pagination?.total||list.length;
-    const resolved=list.filter(c=>c.status==='resolved').length;
-    const critical=list.filter(c=>c.priority==='critical').length;
-    const inProgress=list.filter(c=>c.status==='in_progress').length;
+    const allList=allData.data||[];
+    const total=allData.pagination?.total||allList.length;
+    const resolved=allList.filter(c=>c.status==='resolved').length;
+    const critical=allList.filter(c=>c.priority==='critical'&&c.status!=='resolved').length;
+    const inProgress=allList.filter(c=>c.status==='in_progress'||c.status==='under_review').length;
     let analyticsHtml='';
     if(isAdmin){try{const ana=await api('GET','/complaints/analytics');analyticsHtml=buildAnalyticsCharts(ana.data);}catch(e){}}
     const critBanner=critical>0?`<div class="alert-banner"><div class="alert-banner-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/></svg></div><div style="flex:1"><div class="alert-banner-title">${critical} critical complaint${critical>1?'s':''} need attention</div><div class="alert-banner-sub">Review and assign these immediately</div></div><button class="alert-banner-btn" onclick="showPage('complaints')">View Now</button></div>`:'';
