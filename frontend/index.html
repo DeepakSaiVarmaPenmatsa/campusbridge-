@@ -803,9 +803,6 @@ async function api(method,path,body=null,isFormData=false){
     if(!res.ok)throw new Error(data.message||`HTTP ${res.status}`);
     return data;
   }catch(e){
-    if(e.message.includes('fetch')||e.message.includes('Failed')||e.message.includes('Load')){
-      return demoApiHandler(method,path,body);
-    }
     throw e;
   }
 }
