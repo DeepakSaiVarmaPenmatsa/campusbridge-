@@ -314,10 +314,10 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--ink);colo
 .stat:hover{
   transform:perspective(600px) rotateX(-3deg) rotateY(3deg) translateY(-4px);
 }
-.stat.blue{background:rgba(108,99,255,.12);box-shadow:0 4px 24px rgba(108,99,255,.1)}
-.stat.red{background:rgba(255,77,109,.1);box-shadow:0 4px 24px rgba(255,77,109,.08)}
-.stat.green{background:rgba(168,255,62,.07);box-shadow:0 4px 24px rgba(168,255,62,.06)}
-.stat.gold{background:rgba(255,184,48,.08);box-shadow:0 4px 24px rgba(255,184,48,.06)}
+.stat.blue{background:linear-gradient(135deg,rgba(108,99,255,.25),rgba(108,99,255,.1));box-shadow:0 4px 24px rgba(108,99,255,.25)}
+.stat.red{background:linear-gradient(135deg,rgba(255,77,109,.22),rgba(255,77,109,.08));box-shadow:0 4px 24px rgba(255,77,109,.22)}
+.stat.green{background:linear-gradient(135deg,rgba(168,255,62,.2),rgba(168,255,62,.07));box-shadow:0 4px 24px rgba(168,255,62,.18)}
+.stat.gold{background:linear-gradient(135deg,rgba(255,184,48,.22),rgba(255,184,48,.08));box-shadow:0 4px 24px rgba(255,184,48,.2)}
 .stat:hover.blue{box-shadow:0 12px 40px rgba(108,99,255,.3)}
 .stat:hover.red{box-shadow:0 12px 40px rgba(255,77,109,.25)}
 .stat:hover.green{box-shadow:0 12px 40px rgba(168,255,62,.2)}
@@ -334,10 +334,10 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--ink);colo
 .stat.gold .stat-icon-box{background:rgba(255,184,48,.14)}
 .stat-icon-box svg{width:17px;height:17px}
 .stat-val{font-size:28px;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:4px}
-.stat.blue .stat-val{color:#fff}
-.stat.red .stat-val{color:var(--rose)}
-.stat.green .stat-val{color:var(--lime)}
-.stat.gold .stat-val{color:var(--gold)}
+.stat.blue .stat-val{color:#6C63FF;text-shadow:0 0 20px rgba(108,99,255,.4)}
+.stat.red .stat-val{color:#FF4D6D;text-shadow:0 0 20px rgba(255,77,109,.4)}
+.stat.green .stat-val{color:#7ACC00;text-shadow:0 0 20px rgba(168,255,62,.4)}
+.stat.gold .stat-val{color:#E6A000;text-shadow:0 0 20px rgba(255,184,48,.4)}
 .stat-lbl{font-size:11px;color:var(--text3);font-weight:500}
 .stat-pill{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;margin-top:9px}
 .stat.blue .stat-pill{background:rgba(108,99,255,.2);color:var(--violet2)}
